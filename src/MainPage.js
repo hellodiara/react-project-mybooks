@@ -5,7 +5,6 @@ import Book from './Book';
 
 class MainPage extends Component {
 	render() {
-    console.log(this.props.books);
 		return(
 			<div className="list-books">
             <div className="list-books-title">
@@ -25,6 +24,7 @@ class MainPage extends Component {
                               <Book 
                                 book={book}
                                 moveShelf={this.props.moveShelf}
+                                currentShelf="currentlyReading"
                               />
                             </li>
                           ))
@@ -44,6 +44,7 @@ class MainPage extends Component {
                             <Book 
                               book={book}
                               moveShelf={this.props.moveShelf}
+                              currentShelf="wantToRead"
                             />
                           </li>
                         ))
@@ -63,6 +64,7 @@ class MainPage extends Component {
                               <Book 
                                 book={book}
                                 moveShelf={this.props.moveShelf}
+                                currentShelf="read"
                               />
                             </li>
                           ))
