@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'; 
 
 import Book from './Book';
 
@@ -24,6 +25,7 @@ class MainPage extends Component {
                               <Book 
                                 book={book}
                                 moveShelf={this.props.moveShelf}
+                                currentShelf="currentlyReading"                              
                               />
                             </li>
                           ))
@@ -42,7 +44,8 @@ class MainPage extends Component {
                           <li key={book.id} >
                             <Book 
                               book={book}
-                              moveShelf={this.props.moveShelf}
+                              moveShelf={this.props.moveShelf}                              currentShelf="wantToRead"
+                              currentShelf="wantToRead"
                             />
                           </li>
                         ))
@@ -62,6 +65,7 @@ class MainPage extends Component {
                               <Book 
                                 book={book}
                                 moveShelf={this.props.moveShelf}
+                                currentShelf="read"
                               />
                             </li>
                           ))
@@ -72,7 +76,9 @@ class MainPage extends Component {
               </div>
             </div>
             <div className="open-search">
-              <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
+              <Link
+                to="/search"
+              >Add a book</Link>
             </div>
           </div>
 		);
