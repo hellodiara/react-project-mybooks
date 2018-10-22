@@ -19,7 +19,11 @@ class SearchPage extends Component {
 	updateSearchedBooks = (query) => {
 		if (query) {
 			BooksAPI.search(query).then((searchedBooks) => {
+				if (searchedBooks.error) {
+				this.setState({ searchedBooks: [] });
+				} else {
 				this.setState({ searchedBooks: searchedBooks })
+				}
 			})
 		} else {
 			this.setState({ searchedBooks: [] });
@@ -53,6 +57,7 @@ class SearchPage extends Component {
 	              			<li key={searchedBook.id}>
 	              			<Book
 	              				book={searchedBook}
+	              				moveShelf={this.props.moveShelf}
 							/>
 							</li>
 	              		))
